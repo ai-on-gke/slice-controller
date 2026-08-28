@@ -1,0 +1,31 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: accelerator.gke.io/v1beta1
+kind: Slice
+metadata:
+  # Name of the Slice resource
+  name: invalid-topo-tpu7x-slice
+  # Namespace where the Slice resource will be created
+  namespace: default
+spec:
+  # Specify the type of accelerator for this slice
+  type: "tpu7x"
+  # Invalid Topo for tpu7x
+  topology: "4x5"
+  # NodeSelector specifies a set of label-based selectors for nodes that can form the slice.
+  nodeSelector:
+    # This key is a common label for GKE node pools. The value is a list of node pool names to select from.
+    cloud.google.com/gke-nodepool:
+      - "default-pool"

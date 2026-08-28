@@ -1,0 +1,27 @@
+# Copyright 2025 Google LLC
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+apiVersion: accelerator.gke.io/v1beta1
+kind: Slice
+metadata:
+  # Name of the Slice resource
+  name: test-slice3
+spec:
+  # Specify the type of accelerator for this slice
+  type: "tpu7x"
+  # Define the desired topology for the accelerator slice
+  topology: "4x4x4"
+  # PartitionIds specifies the set of partition IDs to use to form a slice.
+  partitionIds:
+    - "fba785f80d18552357dcdef6d3d16c27"
